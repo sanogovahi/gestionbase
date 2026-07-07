@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques - Gestion des Accès</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏢 GestionAccès</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">📊 Dashboard</a>
+                <a href="personnel.html">👥 Personnel</a>
+                <a href="visiteurs.html">🚶 Visiteurs</a>
+                <a href="historique.html">📋 Historique</a>
+                <a href="statistiques.html" class="active">📈 Statistiques</a>
+                <a href="utilisateurs.html" id="menuUtilisateurs">👤 Utilisateurs</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <span id="userInfo"></span>
+                </div>
+                <button onclick="logout()" class="btn-logout">🚪 Déconnexion</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>📈 Statistiques</h1>
+                <div class="clock" id="clock"></div>
+            </header>
+
+            <div class="content">
+                <div class="stats-grid">
+                    <div class="stat-card gradient-blue">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3>Total Employés</h3>
+                            <p id="totalEmp">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card gradient-green">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-info">
+                            <h3>Présents</h3>
+                            <p id="totalPresents">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card gradient-orange">
+                        <div class="stat-icon">🚶</div>
+                        <div class="stat-info">
+                            <h3>Visiteurs Jour</h3>
+                            <p id="visiteursJour">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card gradient-purple">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-info">
+                            <h3>Mouvements Jour</h3>
+                            <p id="mouvementsJour">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-columns">
+                    <div class="card">
+                        <h3>📊 Mouvements des 7 derniers jours</h3>
+                        <canvas id="chart7jours"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>🥧 Répartition Personnel/Visiteurs</h3>
+                        <canvas id="chartRepartition"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🏢 Répartition par Service</h3>
+                    <canvas id="chartServices"></canvas>
+                </div>
+
+                <div class="card">
+                    <h3>⏰ Activité par Heure (aujourd'hui)</h3>
+                    <canvas id="chartHeures"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/database.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/statistiques.js"></script>
+</body>
+</html>

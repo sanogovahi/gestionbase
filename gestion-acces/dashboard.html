@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gestion des Accès</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏢 GestionAccès</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="active">📊 Dashboard</a>
+                <a href="personnel.html">👥 Personnel</a>
+                <a href="visiteurs.html">🚶 Visiteurs</a>
+                <a href="historique.html">📋 Historique</a>
+                <a href="statistiques.html">📈 Statistiques</a>
+                <a href="utilisateurs.html" id="menuUtilisateurs">👤 Utilisateurs</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <span id="userInfo"></span>
+                </div>
+                <button onclick="logout()" class="btn-logout">🚪 Déconnexion</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>📊 Tableau de Bord</h1>
+                <div class="clock" id="clock"></div>
+            </header>
+
+            <div class="content">
+                <!-- Cards Statistiques -->
+                <div class="stats-grid">
+                    <div class="stat-card gradient-blue">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3>Personnel Présent</h3>
+                            <p id="statPresents">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card gradient-green">
+                        <div class="stat-icon">🚶</div>
+                        <div class="stat-info">
+                            <h3>Visiteurs Présents</h3>
+                            <p id="statVisiteurs">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card gradient-orange">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-info">
+                            <h3>Mouvements Aujourd'hui</h3>
+                            <p id="statMouvements">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card gradient-purple">
+                        <div class="stat-icon">👤</div>
+                        <div class="stat-info">
+                            <h3>Total Employés</h3>
+                            <p id="statTotalEmp">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions Rapides -->
+                <div class="card">
+                    <h3>⚡ Actions Rapides</h3>
+                    <div class="quick-actions">
+                        <a href="personnel.html" class="quick-btn">
+                            ✅ Pointer Personnel
+                        </a>
+                        <a href="visiteurs.html" class="quick-btn">
+                            🚶 Nouveau Visiteur
+                        </a>
+                        <a href="historique.html" class="quick-btn">
+                            📋 Voir Historique
+                        </a>
+                        <a href="statistiques.html" class="quick-btn">
+                            📈 Statistiques
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Derniers Mouvements -->
+                <div class="card">
+                    <h3>🕐 Derniers Mouvements</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Nom</th>
+                                <th>Action</th>
+                                <th>Heure</th>
+                            </tr>
+                        </thead>
+                        <tbody id="derniersMouvements"></tbody>
+                    </table>
+                </div>
+
+                <!-- Personnes Présentes -->
+                <div class="two-columns">
+                    <div class="card">
+                        <h3>👥 Personnel Présent</h3>
+                        <div id="listePresents" class="mini-list"></div>
+                    </div>
+                    <div class="card">
+                        <h3>🚶 Visiteurs Présents</h3>
+                        <div id="listeVisiteursPresents" class="mini-list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/database.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

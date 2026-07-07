@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historique - Gestion des Accès</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏢 GestionAccès</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">📊 Dashboard</a>
+                <a href="personnel.html">👥 Personnel</a>
+                <a href="visiteurs.html">🚶 Visiteurs</a>
+                <a href="historique.html" class="active">📋 Historique</a>
+                <a href="statistiques.html">📈 Statistiques</a>
+                <a href="utilisateurs.html" id="menuUtilisateurs">👤 Utilisateurs</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <span id="userInfo"></span>
+                </div>
+                <button onclick="logout()" class="btn-logout">🚪 Déconnexion</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>📋 Historique des Accès</h1>
+                <div class="clock" id="clock"></div>
+            </header>
+
+            <div class="content">
+                <div class="card">
+                    <h3>🔍 Filtres</h3>
+                    <div class="filtres-grid">
+    <div class="form-group">
+        <label for="filtreType">Type</label>
+        <select id="filtreType" name="filtreType">
+            <option value="tous">Tous</option>
+            <option value="personnel">Personnel</option>
+            <option value="visiteur">Visiteurs</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="filtreAction">Action</label>
+        <select id="filtreAction" name="filtreAction">
+            <option value="tous">Toutes</option>
+            <option value="entree">Entrées</option>
+            <option value="sortie">Sorties</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="dateDebut">Date début</label>
+        <input 
+            type="date" 
+            id="dateDebut" 
+            name="dateDebut">
+    </div>
+
+    <div class="form-group">
+        <label for="dateFin">Date fin</label>
+        <input 
+            type="date" 
+            id="dateFin" 
+            name="dateFin">
+    </div>
+
+    <div class="form-group">
+        <label for="rechercheHist">Recherche</label>
+        <input 
+            type="text" 
+            id="rechercheHist" 
+            name="rechercheHist"
+            placeholder="Nom, matricule, CIN...">
+    </div>
+
+    <div class="btn-group">
+    <button onclick="exporterCSV()" class="btn-success">📥 CSV</button>
+    <button onclick="imprimerHistorique()" class="btn-primary">🖨️ Imprimer</button>
+    <button onclick="viderHistorique()" class="btn-danger admin-only">🗑️ Vider Tout</button>
+</div>
+</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📋 Résultats (<span id="nbResultats">0</span>)</h3>
+                        <div class="btn-group">
+                            <button onclick="exporterCSV()" class="btn-success">📥 CSV</button>
+                            <button onclick="imprimerHistorique()" class="btn-primary">🖨️ Imprimer</button>
+                        </div>
+                    </div>
+                    <table id="tableHistorique">
+                        <thead>
+                            <tr>
+                                <th>Date/Heure</th>
+                                <th>Type</th>
+                                <th>Nom</th>
+                                <th>Détails</th>
+                                <th>Action</th>
+                                <th>Agent</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpsHistorique"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/database.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/historique.js"></script>
+</body>
+</html>

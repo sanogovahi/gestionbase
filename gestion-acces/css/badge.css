@@ -1,0 +1,124 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.badge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.badge {
+    width: 320px;
+    height: 500px;
+    background: white;
+    border: 3px solid #1e293b;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 3px solid #1e293b;
+}
+.badge-header h1 { font-size: 1.8em; letter-spacing: 3px; }
+.badge-number {
+    margin-top: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: white;
+    color: #667eea;
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+}
+
+.badge-photo {
+    padding: 15px;
+    text-align: center;
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+}
+.photo-placeholder {
+    width: 100px;
+    height: 100px;
+    background: #e2e8f0;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    border: 3px solid #667eea;
+}
+
+.badge-info {
+    padding: 15px;
+    flex: 1;
+}
+.info-row {
+    display: flex;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #e2e8f0;
+    font-size: 0.9em;
+}
+.label {
+    font-weight: bold;
+    color: #64748b;
+    min-width: 90px;
+}
+.value {
+    color: #1e293b;
+    flex: 1;
+    word-break: break-word;
+}
+
+.badge-footer {
+    background: #1e293b;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.75em;
+}
+.badge-footer p { margin: 2px 0; }
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+.actions button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+}
+.btn-print { background: #667eea; color: white; }
+.btn-close { background: #ef4444; color: white; }
+
+@media print {
+    body { background: white; padding: 0; }
+    .no-print { display: none !important; }
+    .badge {
+        border: 2px solid #000;
+        box-shadow: none;
+        page-break-after: always;
+    }
+}

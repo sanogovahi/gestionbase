@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge Visiteur</title>
+    <link rel="stylesheet" href="css/badge.css">
+</head>
+<body>
+    <div class="badge-container">
+        <div class="badge">
+            <div class="badge-header">
+                <h1>🏢 VISITEUR</h1>
+                <div class="badge-number" id="badgeNum">#000</div>
+            </div>
+            
+            <div class="badge-photo">
+                <div class="photo-placeholder">👤</div>
+            </div>
+            
+            <div class="badge-info">
+                <div class="info-row">
+                    <span class="label">Nom :</span>
+                    <span class="value" id="badgeNom"></span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Entreprise :</span>
+                    <span class="value" id="badgeEntreprise"></span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Visite :</span>
+                    <span class="value" id="badgeVisite"></span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Motif :</span>
+                    <span class="value" id="badgeMotif"></span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Date :</span>
+                    <span class="value" id="badgeDate"></span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Heure :</span>
+                    <span class="value" id="badgeHeure"></span>
+                </div>
+            </div>
+            
+            <div class="badge-footer">
+                <p>⚠️ Ce badge doit être porté visiblement</p>
+                <p>À rendre en sortie</p>
+            </div>
+        </div>
+        
+        <div class="no-print actions">
+            <button onclick="window.print()" class="btn-print">🖨️ Imprimer</button>
+            <button onclick="window.close()" class="btn-close">❌ Fermer</button>
+        </div>
+    </div>
+    
+    <script src="js/badge.js"></script>
+</body>
+</html>

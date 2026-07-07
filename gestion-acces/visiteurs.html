@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visiteurs - Gestion des Accès</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏢 GestionAccès</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">📊 Dashboard</a>
+                <a href="personnel.html">👥 Personnel</a>
+                <a href="visiteurs.html" class="active">🚶 Visiteurs</a>
+                <a href="historique.html">📋 Historique</a>
+                <a href="statistiques.html">📈 Statistiques</a>
+                <a href="utilisateurs.html" id="menuUtilisateurs">👤 Utilisateurs</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <span id="userInfo"></span>
+                </div>
+                <button onclick="logout()" class="btn-logout">🚪 Déconnexion</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>🚶 Gestion des Visiteurs</h1>
+                <div class="clock" id="clock"></div>
+            </header>
+
+            <div class="content">
+                <!-- Nouveau Visiteur -->
+                <div class="card">
+                    <h3>➕ Enregistrer un Nouveau Visiteur</h3>
+                   <form id="formVisiteur" class="form-grid">
+    <div class="form-group">
+        <label for="nomVisiteur">Nom complet *</label>
+        <input 
+            type="text" 
+            id="nomVisiteur" 
+            name="nomVisiteur" 
+            required
+            placeholder="Nom complet du visiteur">
+    </div>
+
+    <div class="form-group">
+        <label for="cinVisiteur">CIN / Pièce d'identité *</label>
+        <input 
+            type="text" 
+            id="cinVisiteur" 
+            name="cinVisiteur" 
+            required
+            placeholder="Numéro de la pièce">
+    </div>
+
+    <div class="form-group">
+        <label for="telVisiteur">Téléphone</label>
+        <input 
+            type="tel" 
+            id="telVisiteur" 
+            name="telVisiteur"
+            placeholder="Téléphone du visiteur">
+    </div>
+
+    <div class="form-group">
+        <label for="entrepriseVisiteur">Entreprise / Organisation</label>
+        <input 
+            type="text" 
+            id="entrepriseVisiteur" 
+            name="entrepriseVisiteur"
+            placeholder="Entreprise ou organisation">
+    </div>
+
+    <div class="form-group">
+        <label for="motifVisite">Motif de la visite *</label>
+        <input 
+            type="text" 
+            id="motifVisite" 
+            name="motifVisite" 
+            required
+            placeholder="Motif de la visite">
+    </div>
+
+    <div class="form-group">
+        <label for="personneVisitee">Personne à visiter *</label>
+        <input 
+            type="text" 
+            id="personneVisitee" 
+            name="personneVisitee" 
+            required
+            placeholder="Nom de la personne visitée">
+    </div>
+
+    <div class="form-group">
+        <label for="serviceVisite">Service visité</label>
+        <input 
+            type="text" 
+            id="serviceVisite" 
+            name="serviceVisite"
+            placeholder="Service ou département">
+    </div>
+
+    <div class="form-group">
+        <label for="badgeVisiteur">N° Badge</label>
+        <input 
+            type="text" 
+            id="badgeVisiteur" 
+            name="badgeVisiteur"
+            placeholder="Numéro du badge">
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn-success btn-large">
+            ✅ Enregistrer & Imprimer Badge
+        </button>
+
+        <button type="button" class="btn-primary" onclick="enregistrerSansBadge()">
+            💾 Enregistrer Uniquement
+        </button>
+    </div>
+</form>
+                </div>
+
+                <!-- Visiteurs Présents -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>🚶 Visiteurs Actuellement Présents</h3>
+                        <span id="nbVisiteurs" class="badge-count">0</span>
+                    </div>
+                    <div id="listeVisiteursPresents" class="cards-grid"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/database.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/visiteurs.js"></script>
+</body>
+</html>

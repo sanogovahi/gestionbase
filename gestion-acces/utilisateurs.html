@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilisateurs - Gestion des Accès</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏢 GestionAccès</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">📊 Dashboard</a>
+                <a href="personnel.html">👥 Personnel</a>
+                <a href="visiteurs.html">🚶 Visiteurs</a>
+                <a href="historique.html">📋 Historique</a>
+                <a href="statistiques.html">📈 Statistiques</a>
+                <a href="utilisateurs.html" class="active">👤 Utilisateurs</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <span id="userInfo"></span>
+                </div>
+                <button onclick="logout()" class="btn-logout">🚪 Déconnexion</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>👤 Gestion des Utilisateurs</h1>
+                <div class="clock" id="clock"></div>
+            </header>
+
+            <div class="content">
+                <div class="card">
+                    <h3>➕ Créer un Utilisateur</h3>
+                    <form id="formUtilisateur" class="form-grid">
+    <div class="form-group">
+        <label for="nomComplet">Nom complet *</label>
+        <input 
+            type="text" 
+            id="nomComplet" 
+            name="nomComplet" 
+            required
+            placeholder="Nom complet">
+    </div>
+
+    <div class="form-group">
+        <label for="usernameNew">Nom d'utilisateur *</label>
+        <input 
+            type="text" 
+            id="usernameNew" 
+            name="usernameNew" 
+            required
+            placeholder="Nom d'utilisateur">
+    </div>
+
+    <div class="form-group">
+        <label for="passwordNew">Mot de passe *</label>
+        <input 
+            type="password" 
+            id="passwordNew" 
+            name="passwordNew" 
+            required 
+            minlength="6"
+            placeholder="Minimum 6 caractères">
+    </div>
+
+    <div class="form-group">
+        <label for="roleNew">Rôle *</label>
+        <select id="roleNew" name="roleNew" required>
+            <option value="agent">Agent</option>
+            <option value="admin">Administrateur</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="emailNew">Email</label>
+        <input 
+            type="email" 
+            id="emailNew" 
+            name="emailNew"
+            placeholder="email@entreprise.com">
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn-primary">
+            ➕ Créer
+        </button>
+    </div>
+</form>
+                </div>
+
+                <div class="card">
+                    <h3>📋 Liste des Utilisateurs</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Nom Complet</th>
+                                <th>Rôle</th>
+                                <th>Email</th>
+                                <th>Créé le</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listeUtilisateurs"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/database.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/utilisateurs.js"></script>
+</body>
+</html>

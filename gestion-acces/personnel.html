@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnel - Gestion des Accès</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏢 GestionAccès</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">📊 Dashboard</a>
+                <a href="personnel.html" class="active">👥 Personnel</a>
+                <a href="visiteurs.html">🚶 Visiteurs</a>
+                <a href="historique.html">📋 Historique</a>
+                <a href="statistiques.html">📈 Statistiques</a>
+                <a href="utilisateurs.html" id="menuUtilisateurs">👤 Utilisateurs</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <span id="userInfo"></span>
+                </div>
+                <button onclick="logout()" class="btn-logout">🚪 Déconnexion</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>👥 Gestion du Personnel</h1>
+                <div class="clock" id="clock"></div>
+            </header>
+
+            <div class="content">
+                <!-- Pointage Rapide -->
+                <div class="card">
+    <h3>⚡ Pointage Rapide</h3>
+
+    <div class="pointage-box">
+        <div class="form-group">
+            <label for="selectEmploye">Sélectionner un employé</label>
+            <select id="selectEmploye" name="selectEmploye" class="input-large">
+                <option value="">-- Sélectionner un employé --</option>
+            </select>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-success btn-large" onclick="pointerPersonnel('entree')">
+                ✅ Entrée
+            </button>
+            <button class="btn-danger btn-large" onclick="pointerPersonnel('sortie')">
+                🚪 Sortie
+            </button>
+        </div>
+    </div>
+</div>
+
+                <!-- Ajouter Employé -->
+                <div class="card">
+                    <h3>➕ Ajouter un Employé</h3>
+                    <form id="formPersonnel" class="form-grid">
+    <div class="form-group">
+        <label for="nomEmploye">Nom complet *</label>
+        <input 
+            type="text" 
+            id="nomEmploye" 
+            name="nomEmploye" 
+            required
+            placeholder="Ex: Jean Dupont">
+    </div>
+
+    <div class="form-group">
+        <label for="matricule">Matricule *</label>
+        <input 
+            type="text" 
+            id="matricule" 
+            name="matricule" 
+            required
+            placeholder="Ex: EMP001">
+    </div>
+
+    <div class="form-group">
+        <label for="service">Service *</label>
+        <input 
+            type="text" 
+            id="service" 
+            name="service" 
+            required
+            placeholder="Ex: Informatique">
+    </div>
+
+    <div class="form-group">
+        <label for="poste">Poste</label>
+        <input 
+            type="text" 
+            id="poste" 
+            name="poste"
+            placeholder="Ex: Agent administratif">
+    </div>
+
+    <div class="form-group">
+        <label for="telephone">Téléphone</label>
+        <input 
+            type="tel" 
+            id="telephone" 
+            name="telephone"
+            placeholder="Ex: +243 999 999 999">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            type="email" 
+            id="email" 
+            name="email"
+            placeholder="Ex: employe@entreprise.com">
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn-primary">
+            ➕ Ajouter
+        </button>
+    </div>
+</form>
+                </div>
+
+                <!-- Liste Personnel -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📋 Liste du Personnel</h3>
+                        <input type="text" id="searchEmp" placeholder="🔍 Rechercher..." class="search-input">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Matricule</th>
+                                <th>Nom</th>
+                                <th>Service</th>
+                                <th>Poste</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listeEmployes"></tbody>
+                    </table>
+                </div>
+
+                <!-- Personnel Présent -->
+                <div class="card">
+                    <h3>✅ Personnel Actuellement Présent</h3>
+                    <div id="listePresents" class="cards-grid"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/database.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/personnel.js"></script>
+</body>
+</html>
